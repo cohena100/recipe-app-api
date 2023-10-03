@@ -1,0 +1,59 @@
+docker hub: dckr_pat_VnT5naMZ9Ttv908ImwQaeVNNuBg
+
+
+docker build .
+ docker-compose build
+docker-compose run --rm app sh -c "flake8"
+docker-compose run --rm app sh -c "django-admin startproject app ."
+ docker-compose up
+http://127.0.0.1:8000/
+ctrl-c
+docker-compose run --rm app sh -c "python manage.py test"
+docker-compose run --rm app sh -c "flake8"
+
+docker-compose down
+docker-compose build
+docker-compose up
+
+docker-compose run --rm app sh -c "python manage.py startapp core"
+
+docker-compose run --rm app sh -c "python manage.py test"
+docker-compose run --rm app sh -c "python manage.py wait_for_db"
+docker-compose run --rm app sh -c "python manage.py wait_for_db && flake8"
+docker-compose run --rm app sh -c "flake8"
+
+
+Section 9 - Create User Model
+docker-compose run --rm app sh -c "python manage.py makemigrations"
+docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
+docker volume ls
+docker-compose down
+docker volume rm recipe-app-api_dev-db-data
+docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
+docker-compose run --rm app sh -c "python manage.py test"
+
+docker-compose up
+docker-compose run --rm app sh -c "python manage.py createsuperuser"
+admin@example.com
+abc123
+
+Section 10 - Setup Django Admin
+docker-compose run --rm app sh -c "python manage.py test"
+docker-compose up
+http://127.0.0.1:8000/admin/
+docker-compose down
+docker-compose run --rm app sh -c "python manage.py test"
+
+docker-compose up
+http://127.0.0.1:8000/admin/
+http://127.0.0.1:8000/admin/core/user/1/change/
+http://127.0.0.1:8000/admin/core/user/add/
+
+docker-compose build
+docker-compose up
+http://127.0.0.1:8000/api/docs/
+
+Section 12: Build user API
+docker-compose run --rm app sh -c "python manage.py startapp user"
+
+docker-compose run --rm app sh -c "python manage.py test"
